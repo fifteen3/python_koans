@@ -30,7 +30,9 @@ class AboutGenerators(Koan):
         # A generator has to be iterated through.
 		# this is a stupid way to present that you must completely rewrite this assertion
 		# to discover how to trigger the TypeError being raised. 
-        with self.assertRaises(TypeError): num = num_generator[0]
+        self.assertRaises(TypeError, num_generator, [0])
+		#or
+        with self.assertRaises(TypeError): num = num_generator
         #self.assertRaises(TypeError, num_generator[0]) # Evaluates num_generator[0]
         self.assertEqual(num_list[0], list(num_generator)[0]) # This works though
         
